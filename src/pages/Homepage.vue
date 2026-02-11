@@ -1,24 +1,28 @@
-<!-- Example page file -->
 <template>
-  <div class="page">
-    <h2>Homepage</h2>
-    <p>This is an example page component.</p>
+  <div class="homepage">
+    <Navbar />
+    <
   </div>
 </template>
 
 <script>
+import Navbar from "./Navbar.vue";
+
 export default {
-  name: 'HomePage'
+  name: 'Homepage',
+  components: {Navbar}
 }
 </script>
 
 <style scoped>
-.page {
-  padding: 2rem;
-}
-
-.page h2 {
-  margin-bottom: 1rem;
+.homepage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: blue;
+  width: 100%;
+  height: 1000px;
+  font-family: "Roboto", sans-serif
 }
 </style>
 

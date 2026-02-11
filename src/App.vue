@@ -1,17 +1,19 @@
 <template>
   <div id="app">
-    <header>
-      <h1>True Insight</h1>
-    </header>
     <main>
-      <p>Welcome to True Insight</p>
+      <Homepage />
     </main>
   </div>
 </template>
 
 <script>
+import Homepage from './pages/Homepage.vue'
+
 export default {
   name: 'App',
+  components: {
+    Homepage
+  },
   data() {
     return {
     }
@@ -20,26 +22,6 @@ export default {
 </script>
 
 <style scoped>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  text-align: center;
-  color: #2c3e50;
-  margin: 0;
-  padding: 0;
-}
 
-header {
-  background-color: #42b983;
-  padding: 2rem;
-  color: white;
-}
-
-header h1 {
-  margin: 0;
-}
-
-main {
-  padding: 2rem;
-}
 </style>
 
