@@ -4,6 +4,8 @@
     <Home />
     <AboutMe />
     <Methodieken />
+    <Diensten />
+    <Reviews />
   </div>
 </template>
 
@@ -12,10 +14,12 @@ import Navbar from './Navbar.vue'
 import Home from './Home.vue'
 import AboutMe from './AboutMe.vue'
 import Methodieken from './Methodieken.vue'
+import Diensten from './Diensten.vue'
+import Reviews from './Reviews.vue'
 
 export default {
   name: 'Homepage',
-  components: { Navbar, Home, AboutMe, Methodieken }
+  components: { Navbar, Home, AboutMe, Methodieken, Diensten, Reviews }
 }
 </script>
 

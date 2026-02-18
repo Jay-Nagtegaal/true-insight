@@ -18,6 +18,14 @@ function goToMethodieken() {
   document.getElementById('methodieken')?.scrollIntoView({ behavior: 'smooth' })
 }
 
+function goToDiensten() {
+  document.getElementById('diensten')?.scrollIntoView({ behavior: 'smooth' })
+}
+
+function goToReviews() {
+  document.getElementById('reviews')?.scrollIntoView({ behavior: 'smooth' })
+}
+
 let lastScrollY = 0
 let targetOffset = 0
 let currentOffset = 0
@@ -78,8 +86,8 @@ onUnmounted(() => {
         <button class="button" @click="goHome">Home</button>
         <button class="button" @click="goToAbout">Over Mij</button>
         <button class="button" @click="goToMethodieken">Methodieken</button>
-        <button class="button">Diensten</button>
-        <button class="button">Reviews</button>
+        <button class="button" @click="goToDiensten">Diensten</button>
+        <button class="button" @click="goToReviews">Reviews</button>
         <button class="button">Contact</button>
         <button class="button" id="make-appointment">Maak Afspraak</button>
       </div>
