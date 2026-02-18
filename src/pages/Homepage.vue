@@ -6,6 +6,7 @@
     <Methodieken />
     <Diensten />
     <Reviews />
+    <Footer />
   </div>
 </template>
 
@@ -16,10 +17,11 @@ import AboutMe from './AboutMe.vue'
 import Methodieken from './Methodieken.vue'
 import Diensten from './Diensten.vue'
 import Reviews from './Reviews.vue'
+import Footer from './Footer.vue'
 
 export default {
   name: 'Homepage',
-  components: { Navbar, Home, AboutMe, Methodieken, Diensten, Reviews }
+  components: { Navbar, Home, AboutMe, Methodieken, Diensten, Reviews, Footer }
 }
 </script>
 
