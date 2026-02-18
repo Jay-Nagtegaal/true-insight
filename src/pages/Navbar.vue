@@ -14,6 +14,10 @@ function goToAbout() {
   document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' })
 }
 
+function goToMethodieken() {
+  document.getElementById('methodieken')?.scrollIntoView({ behavior: 'smooth' })
+}
+
 let lastScrollY = 0
 let targetOffset = 0
 let currentOffset = 0
@@ -73,7 +77,7 @@ onUnmounted(() => {
       <div class="nav-bar-buttons">
         <button class="button" @click="goHome">Home</button>
         <button class="button" @click="goToAbout">Over Mij</button>
-        <button class="button">Methodieken</button>
+        <button class="button" @click="goToMethodieken">Methodieken</button>
         <button class="button">Diensten</button>
         <button class="button">Reviews</button>
         <button class="button">Contact</button>

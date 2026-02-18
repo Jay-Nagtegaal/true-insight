@@ -3,6 +3,7 @@
     <Navbar />
     <Home />
     <AboutMe />
+    <Methodieken />
   </div>
 </template>
 
@@ -10,23 +11,22 @@
 import Navbar from './Navbar.vue'
 import Home from './Home.vue'
 import AboutMe from './AboutMe.vue'
+import Methodieken from './Methodieken.vue'
 
 export default {
   name: 'Homepage',
-  components: { Navbar, Home, AboutMe }
+  components: { Navbar, Home, AboutMe, Methodieken }
 }
 </script>
 
 <style scoped>
-/* ── Page wrapper ── */
 .homepage {
   display: flex;
   flex-direction: column;
-  background: #ffffff;
+  background: var(--cream);
   width: 100%;
   min-height: 100vh;
-  font-family: 'Calibri', 'Segoe UI', sans-serif;
-  color: #1a1a1a;
+  color: var(--text-dark);
 }
 </style>
 

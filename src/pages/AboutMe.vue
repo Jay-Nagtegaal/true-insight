@@ -94,18 +94,44 @@ export default {
 <style scoped>
 /* ── About section ── */
 .about {
+  position: relative;
   display: flex;
   align-items: center;
   gap: 64px;
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 80px 32px;
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  padding: 80px max(32px, calc(50vw - 550px)) 80px;
+  background: var(--white);
+  overflow: hidden;
+}
+
+/* 'Welcome' watermark */
+.about::after {
+  content: 'Welcome';
+  position: absolute;
+  top: 50%;
+  left: -2%;
+  transform: translateY(-50%);
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(80px, 14vw, 200px);
+  font-weight: 700;
+  color: rgba(42, 33, 24, 0.04);
+  white-space: nowrap;
+  pointer-events: none;
+  letter-spacing: -0.02em;
+  line-height: 1;
+}
+
+/* Keep content above pseudo-elements */
+.about__image-wrapper,
+.about__text {
+  position: relative;
+  z-index: 1;
 }
 
 /* ── Left: Image column ── */
 .about__image-wrapper {
   flex: 1;
-  position: relative;
   max-width: 420px;
 }
 
@@ -113,7 +139,7 @@ export default {
   width: 100%;
   height: 500px;
   object-fit: cover;
-  border-radius: 16px;
+  border-radius: 12px;
   display: block;
 }
 
@@ -121,28 +147,32 @@ export default {
 .about__stat {
   position: absolute;
   top: 50%;
-  right: -24px;
+  right: -28px;
   transform: translateY(-50%);
-  background: #ffffff;
-  border-radius: 10px;
-  padding: 16px 22px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  background: var(--cream);
+  border-radius: 8px;
+  padding: 20px 26px;
+  box-shadow: 0 8px 32px rgba(42, 33, 24, 0.1);
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
 .about__stat-number {
-  font-size: 2rem;
-  font-weight: 700;
-  color: #111;
+  font-family: 'Playfair Display', serif;
+  font-size: 2.2rem;
+  font-weight: 600;
+  color: var(--text-dark);
   line-height: 1;
 }
 
 .about__stat-label {
-  font-size: 0.78rem;
-  color: #777;
-  margin-top: 4px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--olive);
+  margin-top: 6px;
 }
 
 /* ── Right: Text column ── */
@@ -155,38 +185,39 @@ export default {
 
 /* Label */
 .about__label {
-  font-size: 0.75rem;
+  font-size: 0.72rem;
   font-weight: 600;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: #777;
+  color: var(--olive);
 }
 
 /* Heading */
 .about__heading {
-  font-size: 2.4rem;
-  font-weight: 700;
+  font-family: 'Playfair Display', serif;
+  font-size: 2.6rem;
+  font-weight: 400;
   line-height: 1.25;
   margin: 0;
-  color: #111;
+  color: var(--text-dark);
 }
 
 .about__heading em {
   font-style: italic;
-  font-weight: 700;
 }
 
 /* Paragraphs */
 .about__paragraphs {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 14px;
 }
 
 .about__paragraph {
-  font-size: 0.97rem;
-  line-height: 1.7;
-  color: #444;
+  font-size: 0.95rem;
+  line-height: 1.8;
+  color: var(--text-mid);
+  font-weight: 300;
   margin: 0;
 }
 
@@ -196,6 +227,9 @@ export default {
   grid-template-columns: 1fr 1fr;
   gap: 20px 32px;
   margin-top: 8px;
+  padding: 24px;
+  background: var(--cream);
+  border-radius: 10px;
 }
 
 .about__feature {
@@ -205,7 +239,7 @@ export default {
 }
 
 .feature__icon {
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   margin-top: 2px;
   flex-shrink: 0;
 }
@@ -217,16 +251,18 @@ export default {
 }
 
 .feature__title {
-  font-size: 0.9rem;
-  font-weight: 700;
-  color: #111;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-dark);
   margin: 0;
+  letter-spacing: 0.02em;
 }
 
 .feature__description {
-  font-size: 0.82rem;
-  line-height: 1.55;
-  color: #555;
+  font-size: 0.8rem;
+  line-height: 1.6;
+  color: var(--text-mid);
+  font-weight: 300;
   margin: 0;
 }
 </style>

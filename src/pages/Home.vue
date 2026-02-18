@@ -61,6 +61,13 @@
     </div>
 
   </section>
+
+  <!-- Wave transition to next section -->
+  <div class="hero__wave">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 90" preserveAspectRatio="none">
+      <path d="M0,40 C240,90 480,0 720,50 C960,100 1200,10 1440,40 L1440,90 L0,90 Z" fill="#ffffff"/>
+    </svg>
+  </div>
 </template>
 
 <script>
@@ -77,7 +84,7 @@ export default {
   gap: 64px;
   max-width: 1100px;
   margin: 0 auto;
-  padding: 140px 32px 80px;
+  padding: 140px 32px 100px;
 }
 
 /* ── Left: Text column ── */
@@ -85,7 +92,7 @@ export default {
   flex: 1;
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 28px;
 }
 
 /* Badge */
@@ -93,107 +100,119 @@ export default {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  font-size: 0.85rem;
-  color: #555;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--olive);
 }
 
 .badge__icon {
-  color: #c0392b;
-  font-size: 1rem;
+  color: var(--olive);
+  font-size: 0.9rem;
 }
 
 /* Heading */
 .hero__heading {
-  font-size: 2.8rem;
-  font-weight: 700;
-  line-height: 1.2;
+  font-family: 'Playfair Display', serif;
+  font-size: 3rem;
+  font-weight: 400;
+  line-height: 1.25;
   margin: 0;
-  color: #111;
+  color: var(--text-dark);
 }
 
 .hero__heading em {
   font-style: italic;
-  font-weight: 700;
+  font-weight: 400;
 }
 
 /* Description */
 .hero__description {
-  font-size: 1rem;
-  line-height: 1.7;
-  color: #444;
-  max-width: 480px;
+  font-size: 0.98rem;
+  line-height: 1.8;
+  color: var(--text-mid);
+  max-width: 460px;
   margin: 0;
+  font-weight: 300;
 }
 
 /* Buttons */
 .hero__buttons {
   display: flex;
   align-items: center;
-  gap: 20px;
+  gap: 24px;
 }
 
 .btn {
   text-decoration: none;
-  font-size: 0.95rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
   cursor: pointer;
-  transition: opacity 0.2s;
+  transition: all 0.25s ease;
 }
 
 .btn--text {
-  color: #1a1a1a;
-  font-weight: 500;
+  color: var(--text-dark);
   border: none;
   background: none;
   padding: 0;
+  border-bottom: 1px solid var(--text-dark);
+  padding-bottom: 2px;
 }
 
 .btn--text:hover {
-  opacity: 0.6;
+  color: var(--olive);
+  border-color: var(--olive);
 }
 
 .btn--outline {
-  border: 1.5px solid #1a1a1a;
-  color: #1a1a1a;
-  background: transparent;
-  padding: 10px 22px;
-  border-radius: 4px;
-  font-weight: 400;
+  border: 1.5px solid var(--olive);
+  color: var(--white);
+  background: var(--olive);
+  padding: 12px 28px;
+  border-radius: 2px;
 }
 
 .btn--outline:hover {
-  background: #f5f5f5;
+  background: var(--olive-dark);
+  border-color: var(--olive-dark);
 }
 
 /* Divider */
 .hero__divider {
   border: none;
-  border-top: 1px solid #ddd;
+  border-top: 1px solid var(--beige);
   margin: 0;
 }
 
 /* Stats */
 .hero__stats {
   display: flex;
-  gap: 40px;
+  gap: 48px;
 }
 
 .stat {
   display: flex;
   flex-direction: column;
-  gap: 2px;
+  gap: 4px;
 }
 
 .stat__number {
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: #111;
+  font-family: 'Playfair Display', serif;
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: var(--text-dark);
 }
 
 .stat__label {
-  font-size: 0.78rem;
-  color: #777;
+  font-size: 0.72rem;
+  color: var(--text-mid);
   text-transform: uppercase;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.08em;
+  font-weight: 600;
 }
 
 /* ── Right: Image column ── */
@@ -205,36 +224,50 @@ export default {
 
 .hero__image {
   width: 100%;
-  height: 480px;
+  height: 500px;
   object-fit: cover;
-  border-radius: 16px;
+  border-radius: 12px;
   display: block;
 }
 
 /* Quote card overlay */
 .hero__quote-card {
   position: absolute;
-  bottom: 24px;
-  left: -24px;
-  background: rgba(255, 255, 255, 0.92);
-  backdrop-filter: blur(6px);
-  border-radius: 10px;
-  padding: 18px 22px;
-  max-width: 280px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  bottom: 28px;
+  left: -28px;
+  background: var(--cream);
+  border-radius: 8px;
+  padding: 20px 24px;
+  max-width: 290px;
+  box-shadow: 0 8px 32px rgba(42, 33, 24, 0.12);
 }
 
 .quote__text {
-  font-size: 0.82rem;
-  line-height: 1.6;
-  color: #333;
-  margin: 0 0 8px 0;
+  font-family: 'Playfair Display', serif;
+  font-size: 0.85rem;
+  font-style: italic;
+  line-height: 1.7;
+  color: var(--text-dark);
+  margin: 0 0 10px 0;
 }
 
 .quote__author {
-  font-size: 0.82rem;
+  font-size: 0.78rem;
   font-weight: 600;
-  color: #111;
+  letter-spacing: 0.06em;
+  color: var(--olive);
   margin: 0;
+}
+/* Wave divider */
+.hero__wave {
+  width: 100%;
+  line-height: 0;
+  margin-top: -2px;
+}
+
+.hero__wave svg {
+  display: block;
+  width: 100%;
+  height: 90px;
 }
 </style>

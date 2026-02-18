@@ -1,8 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,700&family=Lato:wght@300;400;600&display=swap');
+
 /* General Styles */
 :root {
-  --primary-color: #42b983;
-  --text-color: #2c3e50;
-  --bg-color: #f5f5f5;
+  --cream: #FAF6F0;
+  --beige: #F0E8DC;
+  --olive: #7C6B4E;
+  --olive-dark: #4A4232;
+  --text-dark: #2A2118;
+  --text-mid: #7A6B5A;
+  --white: #FFFFFF;
 }
 
 * {
@@ -12,10 +18,10 @@
 }
 
 body {
-  font-family: "Roboto", sans-serif;
+  font-family: 'Lato', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  color: var(--text-color);
-  background-color: var(--bg-color);
+  color: var(--text-dark);
+  background-color: var(--cream);
 }
 
