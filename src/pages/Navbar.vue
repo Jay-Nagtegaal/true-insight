@@ -1,16 +1,59 @@
 <script setup>
+import { ref, onMounted, onUnmounted } from 'vue'
+import { useRouter } from 'vue-router'
 
+const router = useRouter()
+const navRef = ref(null)
+
+let lastScrollY = 0
+let targetOffset = 0
+let currentOffset = 0
+let animFrameId = null
+
+const lerp = (a, b, t) => a + (b - a) * t
+
+function animate() {
+  // Smoothly move currentOffset toward targetOffset
+  currentOffset = lerp(currentOffset, targetOffset, 0.18)
+  // Slowly decay target back to 0 (spring back)
+  targetOffset = lerp(targetOffset, 0, 0.14)
+
+  if (navRef.value) {
+    navRef.value.style.transform = `translateY(${currentOffset.toFixed(2)}px)`
+  }
+
+  animFrameId = requestAnimationFrame(animate)
+}
+
+function onScroll() {
+  const scrollY = window.scrollY
+  const delta = scrollY - lastScrollY
+  // Shift target by a fraction of scroll delta, clamped so nav never leaves screen
+  targetOffset = Math.max(-28, Math.min(0, targetOffset - delta * 0.45))
+  lastScrollY = scrollY
+}
+
+onMounted(() => {
+  lastScrollY = window.scrollY
+  window.addEventListener('scroll', onScroll, { passive: true })
+  animFrameId = requestAnimationFrame(animate)
+})
+
+onUnmounted(() => {
+  window.removeEventListener('scroll', onScroll)
+  cancelAnimationFrame(animFrameId)
+})
 </script>
 
 <template>
-  <div class="nav-bar">
+  <div class="nav-bar" ref="navRef">
     <div class="nav-bar-left">
       <div class="personal-information">
-        <div class="phone-number"> +31 6 1234 5678</div>
+        <div class="phone-number">+31 6 1234 5678</div>
         <div class="email">marion.gulpers@trueinsight.nl</div>
       </div>
       <div class="title">
-        <h1>True Insight</h1>
+        <h1 @click="router.push('/')">True Insight</h1>
         Integrale Geneeskunde
       </div>
     </div>
@@ -19,7 +62,7 @@
         <p>Regio Amsterdam - Amstelveen - Aalsmeer</p>
       </div>
       <div class="nav-bar-buttons">
-        <button class="button">Home</button>
+        <button class="button" @click="router.push('/')">Home</button>
         <button class="button">Over Mij</button>
         <button class="button">Methodieken</button>
         <button class="button">Diensten</button>
@@ -33,18 +76,22 @@
 
 <style scoped>
 .nav-bar {
-  display: flex;
-  width: 90%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
   height: 100px;
   background: white;
   border-bottom: black solid 1px;
   border-top: black solid 1px;
-  margin-left: 50px;
-  margin-right: 50px;
   padding-left: 50px;
   padding-right: 50px;
+  box-sizing: border-box;
+  display: flex;
   flex-direction: row;
   justify-content: space-between;
+  z-index: 1000;
+  will-change: transform;
 }
 
 .personal-information {

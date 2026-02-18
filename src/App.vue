@@ -1,27 +1,19 @@
 <template>
   <div id="app">
-    <main>
-      <Homepage />
-    </main>
+    <Navbar />
+    <router-view />
   </div>
 </template>
 
 <script>
-import Homepage from './pages/Homepage.vue'
+import Navbar from './pages/Navbar.vue'
 
 export default {
   name: 'App',
-  components: {
-    Homepage
-  },
-  data() {
-    return {
-    }
-  }
+  components: { Navbar }
 }
 </script>
 
 <style scoped>
-
 </style>
 
