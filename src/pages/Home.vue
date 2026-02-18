@@ -53,7 +53,7 @@
 
       <div class="hero__quote-card">
         <p class="quote__text">
-          "Het is niet de tijd die heeft maar de oprechte toewijding waarmee
+          "Het is niet de tijd die heelt maar de oprechte toewijding waarmee
           je wezenlijke aandacht aan jezelf besteed."
         </p>
         <p class="quote__author">— Marion Gulpers</p>

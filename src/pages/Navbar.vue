@@ -5,6 +5,51 @@ import { useRouter } from 'vue-router'
 const router = useRouter()
 const navRef = ref(null)
 
+// ── Section colour map ──
+const sectionStyles = {
+  home:        { bg: '#FAF6F0', border: 'rgba(124,107,78,0.25)', text: '#2A2118' },
+  about:       { bg: '#FFFFFF', border: 'rgba(124,107,78,0.15)', text: '#2A2118' },
+  methodieken: { bg: '#FAF6F0', border: 'rgba(124,107,78,0.25)', text: '#2A2118' },
+  diensten:    { bg: '#FFFFFF', border: 'rgba(124,107,78,0.15)', text: '#2A2118' },
+  reviews:     { bg: '#FAF6F0', border: 'rgba(124,107,78,0.25)', text: '#2A2118' },
+}
+
+let observer = null
+
+function applyStyle(id) {
+  const style = sectionStyles[id] || sectionStyles.home
+  if (navRef.value) {
+    navRef.value.style.background    = style.bg
+    navRef.value.style.borderColor   = style.border
+    navRef.value.style.color         = style.text
+  }
+}
+
+function initObserver() {
+  const sections = ['about', 'methodieken', 'diensten', 'reviews']
+  const elements = sections
+    .map(id => document.getElementById(id))
+    .filter(Boolean)
+
+  observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          applyStyle(entry.target.id)
+        }
+      })
+      // If nothing is intersecting we're at the top (home)
+      const anyVisible = entries.some(e => e.isIntersecting)
+      if (!anyVisible && window.scrollY < 200) {
+        applyStyle('home')
+      }
+    },
+    { threshold: 0.25 }
+  )
+
+  elements.forEach(el => observer.observe(el))
+}
+
 function goHome() {
   router.push('/')
   window.scrollTo({ top: 0, behavior: 'smooth' })
@@ -58,11 +103,14 @@ onMounted(() => {
   lastScrollY = window.scrollY
   window.addEventListener('scroll', onScroll, { passive: true })
   animFrameId = requestAnimationFrame(animate)
+  // Wait a tick for sections to be rendered
+  setTimeout(initObserver, 100)
 })
 
 onUnmounted(() => {
   window.removeEventListener('scroll', onScroll)
   cancelAnimationFrame(animFrameId)
+  observer?.disconnect()
 })
 </script>
 
@@ -113,6 +161,7 @@ onUnmounted(() => {
   z-index: 1000;
   will-change: transform;
   font-family: 'Lato', sans-serif;
+  transition: background 0.5s ease, border-color 0.5s ease;
 }
 
 .personal-information {
