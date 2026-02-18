@@ -7,11 +7,11 @@ const navRef = ref(null)
 
 // ── Section colour map ──
 const sectionStyles = {
-  home:        { bg: '#FAF6F0', border: 'rgba(124,107,78,0.25)', text: '#2A2118' },
-  about:       { bg: '#FFFFFF', border: 'rgba(124,107,78,0.15)', text: '#2A2118' },
-  methodieken: { bg: '#FAF6F0', border: 'rgba(124,107,78,0.25)', text: '#2A2118' },
-  diensten:    { bg: '#FFFFFF', border: 'rgba(124,107,78,0.15)', text: '#2A2118' },
-  reviews:     { bg: '#FAF6F0', border: 'rgba(124,107,78,0.25)', text: '#2A2118' },
+  home:        { bg: '#F5F4FF', border: 'rgba(75,45,143,0.25)', text: '#1A1464' },
+  about:       { bg: '#FFFFFF', border: 'rgba(75,45,143,0.15)', text: '#1A1464' },
+  methodieken: { bg: '#F5F4FF', border: 'rgba(75,45,143,0.25)', text: '#1A1464' },
+  diensten:    { bg: '#FFFFFF', border: 'rgba(75,45,143,0.15)', text: '#1A1464' },
+  reviews:     { bg: '#F5F4FF', border: 'rgba(75,45,143,0.25)', text: '#1A1464' },
 }
 
 let observer = null
@@ -151,7 +151,7 @@ onUnmounted(() => {
   width: 100%;
   height: 100px;
   background: var(--cream);
-  border-bottom: 1px solid rgba(124, 107, 78, 0.25);
+  border-bottom: 1px solid rgba(75, 45, 143, 0.25);
   padding-left: 50px;
   padding-right: 50px;
   box-sizing: border-box;
@@ -255,6 +255,6 @@ onUnmounted(() => {
 
 .button:hover {
   color: var(--olive);
-  background: rgba(124, 107, 78, 0.08);
+  background: rgba(75, 45, 143, 0.08);
 }
 </style>

@@ -164,7 +164,7 @@ export default {
 /* ── Single card ── */
 .diensten__card {
   background: var(--white);
-  border: 1px solid rgba(124, 107, 78, 0.18);
+  border: 1px solid rgba(75, 45, 143, 0.18);
   border-radius: 14px;
   padding: 32px 28px 24px;
   display: flex;

@@ -174,7 +174,7 @@ export default {
 /* ── Single card ── */
 .reviews__card {
   background: var(--white);
-  border: 1px solid rgba(124, 107, 78, 0.18);
+  border: 1px solid rgba(75, 45, 143, 0.18);
   border-radius: 14px;
   padding: 32px 28px;
   display: flex;
@@ -266,7 +266,7 @@ export default {
 /* ── Divider ── */
 .reviews__divider {
   border: none;
-  border-top: 1px solid rgba(124, 107, 78, 0.2);
+  border-top: 1px solid rgba(75, 45, 143, 0.2);
   max-width: 1100px;
   margin: 60px auto 52px;
 }

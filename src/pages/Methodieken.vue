@@ -185,7 +185,7 @@ export default {
 /* ── Single card ── */
 .methodieken__card {
   background: var(--white);
-  border: 1px solid rgba(124, 107, 78, 0.18);
+  border: 1px solid rgba(75, 45, 143, 0.18);
   border-radius: 12px;
   padding: 28px 24px;
   display: flex;

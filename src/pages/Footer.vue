@@ -193,7 +193,7 @@ export default {
 
 .footer__divider {
   border: none;
-  border-top: 1px solid rgba(124, 107, 78, 0.2);
+  border-top: 1px solid rgba(75, 45, 143, 0.2);
   margin-bottom: 24px;
 }
 
