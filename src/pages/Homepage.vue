@@ -2,16 +2,18 @@
   <div class="homepage">
     <Navbar />
     <Home />
+    <AboutMe />
   </div>
 </template>
 
 <script>
 import Navbar from './Navbar.vue'
 import Home from './Home.vue'
+import AboutMe from './AboutMe.vue'
 
 export default {
   name: 'Homepage',
-  components: { Navbar, Home }
+  components: { Navbar, Home, AboutMe }
 }
 </script>
 

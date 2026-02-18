@@ -5,6 +5,15 @@ import { useRouter } from 'vue-router'
 const router = useRouter()
 const navRef = ref(null)
 
+function goHome() {
+  router.push('/')
+  window.scrollTo({ top: 0, behavior: 'smooth' })
+}
+
+function goToAbout() {
+  document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' })
+}
+
 let lastScrollY = 0
 let targetOffset = 0
 let currentOffset = 0
@@ -62,8 +71,8 @@ onUnmounted(() => {
         <p>Regio Amsterdam - Amstelveen - Aalsmeer</p>
       </div>
       <div class="nav-bar-buttons">
-        <button class="button" @click="router.push('/')">Home</button>
-        <button class="button">Over Mij</button>
+        <button class="button" @click="goHome">Home</button>
+        <button class="button" @click="goToAbout">Over Mij</button>
         <button class="button">Methodieken</button>
         <button class="button">Diensten</button>
         <button class="button">Reviews</button>
