@@ -102,9 +102,8 @@ onUnmounted(() => {
   left: 0;
   width: 100%;
   height: 100px;
-  background: white;
-  border-bottom: black solid 1px;
-  border-top: black solid 1px;
+  background: var(--cream);
+  border-bottom: 1px solid rgba(124, 107, 78, 0.25);
   padding-left: 50px;
   padding-right: 50px;
   box-sizing: border-box;
@@ -113,55 +112,100 @@ onUnmounted(() => {
   justify-content: space-between;
   z-index: 1000;
   will-change: transform;
+  font-family: 'Lato', sans-serif;
 }
 
 .personal-information {
-  display:  flex;
+  display: flex;
   flex-direction: row;
   gap: 20px;
-  font-size: 12px;
+  font-size: 11px;
+  font-weight: 300;
+  color: var(--text-mid);
+  letter-spacing: 0.02em;
 }
 
-.title h1{
+.title h1 {
   margin-bottom: 2px;
   margin-left: -5px;
   cursor: pointer;
+  font-family: 'Playfair Display', serif;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--text-dark);
+}
+
+.title {
+  font-size: 0.72rem;
+  font-weight: 300;
+  color: var(--text-mid);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
 }
 
 .nav-bar-buttons {
   display: flex;
   align-items: center;
-  margin-left: auto;
-  margin-right: -20px;
+  margin-right: -12px;
+  gap: 2px;
+}
+
+.nav-bar-left {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 4px;
 }
 
 .nav-bar-right {
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 4px;
 }
+
 .region-information {
-  font-size: 12px;
+  font-size: 11px;
+  font-weight: 300;
+  color: var(--text-mid);
   display: flex;
   justify-content: flex-end;
+  letter-spacing: 0.02em;
 }
 
 #make-appointment {
+  background: var(--olive) !important;
+  color: var(--white) !important;
+  border-radius: 2px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
   padding-left: 20px;
   padding-right: 20px;
 }
 
+#make-appointment:hover {
+  background: var(--olive-dark) !important;
+}
+
 .button {
   border: 0;
-  background: white;
-  color: black;
+  background: transparent;
+  color: var(--text-dark);
   height: 50px;
-  padding-left: 10px;
-  padding-right: 10px;
+  padding-left: 12px;
+  padding-right: 12px;
+  font-family: 'Lato', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  transition: color 0.2s ease, background 0.2s ease;
+  border-radius: 2px;
 }
 
 .button:hover {
-  background: #135adf;
-  cursor: pointer;
-  color: white;
+  color: var(--olive);
+  background: rgba(124, 107, 78, 0.08);
 }
 </style>
